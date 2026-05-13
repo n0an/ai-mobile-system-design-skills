@@ -1,6 +1,6 @@
 # Mobile System Design — AI Skill for Claude Code
 
-AI-скилл для Claude Code, синтезированный из трёх книг по мобильной инженерии. Покрывает системный дизайн, декомпозицию задач, оценку, масштабирование, карьерный рост и подготовку к интервью.
+AI-скилл для Claude Code, синтезированный из четырёх книг по мобильной инженерии. Покрывает системный дизайн, декомпозицию задач, оценку, масштабирование, карьерный рост и подготовку к интервью.
 
 ---
 
@@ -16,7 +16,7 @@ AI-скилл для Claude Code, синтезированный из трёх �
 
 ## Источники знаний
 
-Скилл синтезирован из трёх книг. Каждая даёт отдельный слой экспертизы.
+Скилл синтезирован из четырёх книг. Каждая даёт отдельный слой экспертизы.
 
 ---
 
@@ -125,6 +125,40 @@ PART 5: Challenges Due to Stepping Up Your Game
 ```
 
 **Почему эта книга ценна:** опыт Uber Rider и Driver apps (100M+ MAU, 60+ стран, 300+ native engineers). Не академические паттерны, а реальные решения реальных проблем на масштабе.
+
+---
+
+### 4. Mobile System Design Interview: An Insider's Guide
+
+| Атрибут | Значение |
+|---|---|
+| Автор | Manuel Vicente |
+| Опыт | Mobile engineer at Capital One, Google, YouTube |
+| Фокус | Interview-specific methodology, 5-step MSD framework, worked case studies |
+
+**Структура (10 глав + чит-лист):**
+
+| Глава | Тема |
+|---|---|
+| 1–2 | Введение, методология и как работает MSD-интервью |
+| 3 | Design a News Feed (Facebook-style) |
+| 4 | Design a Map App (Google Maps-style) |
+| 5 | Design a Design System (UI component library) |
+| 6 | Design a Hotel Booking App |
+| 7 | Design an App Like Google Drive (file sync) |
+| 8 | Design Logging Blocks (analytics SDK) |
+| 9 | Design an App Like YouTube (video streaming) |
+| 10 | Design Building Blocks (cross-cutting patterns) |
+| 11 | Comprehensive Cheat Sheet |
+
+**Уникальный вклад книги:**
+
+- **5-шаговый интервью-фреймворк** с тайм-аллокацией для 45-минутного интервью
+- **Рубрика оценщика** по уровням: Entry / Mid / Senior / Staff+ — что смотрит интервьюер
+- **8 проработанных кейсов** как симуляции интервью (не академические примеры)
+- **Акцент на шаг API Design** — отдельный шаг, которого нет в других книгах
+- **Чит-лист** по 4 доменам: Network, Data Management, Feature Development, Performance
+- **Философия интервью**: стратегический выбор > попытка покрыть всё; Staff+ сигнал = демонстрация суждения о приоритетах
 
 ---
 
@@ -363,19 +397,38 @@ let a = FeatureA(b: b)
 
 ---
 
-### Framework 7: Карьера и интервью
-
-**Структура Mobile System Design интервью:**
-1. **Requirements clarification** — функциональные и нефункциональные требования, платформа
-2. **High-level design** — компоненты и их связи (entity graph)
-3. **Deep dive** — выбранный слой (networking, state management, offline strategy)
-4. **Trade-off discussion** — почему этот подход, что отвергли и почему
+### Framework 7: Карьера и интервью (из Growing as a Mobile Engineer)
 
 **Что оценивают на Mobile System Design (не как backend SD):**
 - Mobile-specific constraints: lifecycle, offline, binary distribution, device fragmentation
 - API contract с backend: версионирование, error codes, pagination
 - State management: реактивный vs императивный, single source of truth
 - Testing strategy: что на каком уровне
+
+---
+
+### Framework 9: 5-шаговый MSD-интервью фреймворк (из Manuel Vicente)
+
+Конкретная методология для 45-минутного интервью:
+
+| Шаг | Время | Суть |
+|---|---|---|
+| 1. Понять задачу | 5–10 мин | Уточнить what/who/for whom, scale, platform |
+| 2. API Design | 5–10 мин | Протокол, data models, пагинация, real-time |
+| 3. High-Level Architecture | 10–15 мин | Диаграмма компонентов, data flows |
+| 4. Design Deep Dive | 15–20 мин | 2–3 темы вглубь, по реакции интервьюера |
+| 5. Wrap-Up | 0–5 мин | Summary, edge cases, future scale |
+
+**Рубрика оценщика по уровням:**
+
+| Уровень | Что ожидают |
+|---|---|
+| Entry | Базовые паттерны, инициатива, state management awareness |
+| Mid | Связный high-level design, альтернативные решения |
+| Senior | End-to-end ownership, проактивная идентификация проблем, обоснованные trade-offs |
+| Staff+ | Стратегическое мышление, business impact, failure recovery, минимум промптинга |
+
+**Ключевой принцип:** стратегический выбор тем > попытка покрыть всё. Объяснение ПОЧЕМУ ты фокусируешься на этих темах — Staff+ сигнал.
 
 ---
 
@@ -452,7 +505,25 @@ let a = FeatureA(b: b)
 
 ---
 
-### Пример 5: Карьерный вопрос
+### Пример 5: Симуляция интервью по 5-шаговому фреймворку
+
+**Запрос:**
+```
+/mobile-design проведи со мной MSD-интервью на уровень Senior.
+Задача: спроектировать приложение для синхронизации файлов типа Google Drive
+```
+
+**Скилл покроет:**
+- Шаг 1 (scope): что конкретно строим? Offline? Conflict resolution? Платформа?
+- Шаг 2 (API design): REST vs gRPC для upload/download, delta sync protocol, chunked upload
+- Шаг 3 (архитектура): File → Chunk → SyncQueue → LocalDB → NetworkLayer → ConflictResolver
+- Шаг 4 (deep dive): выбор между 2–3 темами — конфликт-резолюшн, background sync, или security
+- Шаг 5 (wrap-up): edge cases (file deleted on both sides), future scale (100× файлов)
+- Обратная связь по рубрике Senior: что показано хорошо, что не хватает до Staff+
+
+---
+
+### Пример 6: Карьерный вопрос
 
 **Запрос:**
 ```
@@ -506,7 +577,10 @@ ai-mobile-system-design-skills/
 | *Mobile System Design: Resourceful Engineering* | Tjeerd in 't Veen | Self-published | 2023 (Early Release) |
 | *Building Mobile Apps at Scale: 39 Engineering Challenges* | Gergely Orosz | pragmaticengineer.com | 2021 |
 | *Growing as a Mobile Engineer* | Gergely Orosz | pragmaticengineer.com | 2021 |
+| *Mobile System Design Interview: An Insider's Guide* | Manuel Vicente | Self-published | 2024 |
 
 **Gergely Orosz** — автор The Pragmatic Engineer Newsletter (крупнейший tech-newsletter на Substack), бывший Principal iOS @ Skyscanner, Senior Android EM @ Uber. Его книги основаны на опыте Uber Rider и Driver apps с 100M+ MAU.
 
 **Tjeerd in 't Veen** — iOS Tech Lead в ING Bank, Staff Engineer в Twitter/X. Специализируется на timeless engineering principles в отличие от trend-driven подходов.
+
+**Manuel Vicente** — mobile engineer с опытом в Capital One и Google/YouTube. Его книга — единственный источник в коллекции, написанный специально под формат интервью, с рубрикой оценщика и проработанными кейсами как симуляциями.
