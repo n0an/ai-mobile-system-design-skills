@@ -6,10 +6,12 @@ AI-скилл для Claude Code, синтезированный из четыр
 
 ## Быстрый старт
 
-```bash
-/mobile-design как спроектировать Instagram-ленту?
-/mobile-design оцени задачу: экран истории транзакций с пагинацией и офлайном
-/mobile-design как перейти с Senior на Staff Engineer?
+После установки (см. [Установка](#установка)) скилл подхватывается автоматически, когда вы обращаетесь к нему естественным языком:
+
+```
+Как спроектировать Instagram-ленту?
+Оцени задачу: экран истории транзакций с пагинацией и офлайном.
+Как перейти с Senior на Staff Engineer?
 ```
 
 ---
@@ -241,7 +243,7 @@ Briefing → Landscape (entity graph) → Layers → API contracts → Trade-off
 
 **Пример запроса:**
 ```
-/mobile-design спроектируй мессенджер с офлайн-поддержкой
+Спроектируй мессенджер с офлайн-поддержкой.
 ```
 
 **Что получишь:**
@@ -302,7 +304,7 @@ Domain Models → Service/Repository → Networking → State → UI
 
 **Пример:**
 ```
-/mobile-design оцени задачу: профиль пользователя с редактированием и аватаркой
+Оцени задачу: профиль пользователя с редактированием и аватаркой.
 ```
 
 Базовая оценка: 5 дней
@@ -438,8 +440,8 @@ let a = FeatureA(b: b)
 
 **Запрос:**
 ```
-/mobile-design помоги спроектировать экран корзины покупок
-с офлайн-поддержкой и синхронизацией при восстановлении сети
+Помоги спроектировать экран корзины покупок
+с офлайн-поддержкой и синхронизацией при восстановлении сети.
 ```
 
 **Скилл покроет:**
@@ -456,7 +458,7 @@ let a = FeatureA(b: b)
 
 **Запрос:**
 ```
-/mobile-design оцени задачу: push-уведомления для order status updates.
+Оцени задачу: push-уведомления для order status updates.
 Бэкенд уже готов, нужно только клиентская часть. iOS.
 ```
 
@@ -473,8 +475,8 @@ let a = FeatureA(b: b)
 
 **Запрос:**
 ```
-/mobile-design помоги подготовиться к mobile system design интервью.
-Задача: спроектировать Uber-like ride tracking с real-time location updates
+Помоги подготовиться к mobile system design интервью.
+Задача: спроектировать Uber-like ride tracking с real-time location updates.
 ```
 
 **Скилл покроет:**
@@ -491,7 +493,7 @@ let a = FeatureA(b: b)
 
 **Запрос:**
 ```
-/mobile-design в чём реальная разница между MVVM и MVI для iOS?
+В чём реальная разница между MVVM и MVI для iOS?
 Когда что выбирать?
 ```
 
@@ -509,8 +511,8 @@ let a = FeatureA(b: b)
 
 **Запрос:**
 ```
-/mobile-design проведи со мной MSD-интервью на уровень Senior.
-Задача: спроектировать приложение для синхронизации файлов типа Google Drive
+Проведи со мной MSD-интервью на уровень Senior.
+Задача: спроектировать приложение для синхронизации файлов типа Google Drive.
 ```
 
 **Скилл покроет:**
@@ -527,7 +529,7 @@ let a = FeatureA(b: b)
 
 **Запрос:**
 ```
-/mobile-design как мобильному инженеру пробить "стеклянный потолок" и выйти на Staff?
+Как мобильному инженеру пробить "стеклянный потолок" и выйти на Staff?
 ```
 
 **Скилл покроет:**
@@ -558,17 +560,7 @@ CLI спросит, в каких агентов (Claude Code, Codex, Cursor, Ge
 /plugin install levabond/ai-mobile-system-design-skills
 ```
 
-После установки можно вызывать скилл естественным языком, например:
-
-```
-Используй mobile-design чтобы спроектировать ленту Instagram.
-```
-
-Или через слеш-команду (если репозиторий склонирован в проект — тогда `/mobile-design` подхватится из `.claude/commands/mobile-design.md`):
-
-```bash
-/mobile-design как спроектировать Instagram-ленту?
-```
+После установки скилл подхватывается автоматически на mobile-system-design запросах — отдельный шорткат не нужен.
 
 ---
 
@@ -581,10 +573,7 @@ ai-mobile-system-design-skills/
 │   ├── SKILL.md                       # Определение скилла (Agent Skills format)
 │   └── agents/openai.yaml             # Метаданные для Codex и др.
 ├── .claude-plugin/plugin.json         # Claude Code plugin manifest
-├── gemini-extension.json              # Gemini extension manifest
-└── .claude/
-    └── commands/
-        └── mobile-design.md           # Слеш-команда (для обратной совместимости)
+└── gemini-extension.json              # Gemini extension manifest
 ```
 
 ---
