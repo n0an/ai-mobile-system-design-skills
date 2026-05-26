@@ -540,20 +540,34 @@ let a = FeatureA(b: b)
 
 ## Установка
 
-Скилл доступен через глобальные команды Claude Code:
+Установить скилл одной командой:
 
 ```bash
-# Проверить, что скилл установлен
-ls ~/.claude/commands/mobile-design.md
-
-# Запустить
-/mobile-design <вопрос>
+npx skills add levabond/ai-mobile-system-design-skills --all
 ```
 
-Для использования в этом проекте — файл скилла также лежит в:
+CLI спросит, в каких агентов (Claude Code, Codex, Cursor, Gemini, ...) добавить скилл и куда установить — в текущий проект или глобально.
+
+Если нет `npx`, поставьте Node (`brew install node`); если нет `brew`, сначала [поставьте Homebrew](https://brew.sh).
+
+### Альтернатива
+
+**Claude Code** (ставит как plugin):
+
+```bash
+/plugin install levabond/ai-mobile-system-design-skills
+```
+
+После установки можно вызывать скилл естественным языком, например:
 
 ```
-.claude/commands/mobile-design.md
+Используй mobile-design чтобы спроектировать ленту Instagram.
+```
+
+Или через слеш-команду (если репозиторий склонирован в проект — тогда `/mobile-design` подхватится из `.claude/commands/mobile-design.md`):
+
+```bash
+/mobile-design как спроектировать Instagram-ленту?
 ```
 
 ---
@@ -563,9 +577,14 @@ ls ~/.claude/commands/mobile-design.md
 ```
 ai-mobile-system-design-skills/
 ├── README.md                          # Этот файл
+├── mobile-design/
+│   ├── SKILL.md                       # Определение скилла (Agent Skills format)
+│   └── agents/openai.yaml             # Метаданные для Codex и др.
+├── .claude-plugin/plugin.json         # Claude Code plugin manifest
+├── gemini-extension.json              # Gemini extension manifest
 └── .claude/
     └── commands/
-        └── mobile-design.md           # Определение скилла (skill prompt)
+        └── mobile-design.md           # Слеш-команда (для обратной совместимости)
 ```
 
 ---

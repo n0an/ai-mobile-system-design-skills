@@ -1,0 +1,8 @@
+interface:
+  display_name: "Mobile System Design"
+  short_description: "Mobile system design, decomposition, estimation, MSD interviews, mobile career."
+  brand_color: "#F05138"
+  default_prompt: "Use $mobile-design to design this mobile feature."
+
+policy:
+  allow_implicit_invocation: true
